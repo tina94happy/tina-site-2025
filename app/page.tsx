@@ -23,7 +23,7 @@ export default function Home() {
         <div className="w-1/2 flex justify-center">
           <Image
             className="hover:scale-105 transition-all duration-300 hover:rotate-12 hover:invert rounded-[20px]"
-            src="/nextjs-github-pages/logo.gif"
+            src="/tina-site-2025/logo.gif"
             alt="Next.js logo"
             width={400}
             height={400}
