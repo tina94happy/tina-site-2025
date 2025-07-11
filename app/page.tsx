@@ -32,8 +32,8 @@ export default function Home() {
         </div>
         <div className="w-1/2 space-y-4">
           {/* Name and Description */}
-          <h1 className="text-7xl font-bold">Hi, I'm <span className="text-lofi-purple">Tina</span></h1>
-          <p className="text-3xl py-4">I'm <span className="text-lofi-purple inline-block"><IntroText /></span></p>
+          <h1 className="text-7xl font-bold">Hi, I&apos;m <span className="text-lofi-purple">Tina</span></h1>
+          <p className="text-3xl py-4">I&apos;m <span className="text-lofi-purple inline-block"><IntroText /></span></p>
 
           {/* Socials Links */}
           <div className="flex gap-4 text-2xl">
