@@ -25,7 +25,7 @@ export default function Home() {
         <div className="w-full lg:w-1/2 flex justify-center mb-8 lg:mb-0">
           <Image
             className="hover:scale-105 transition-all duration-300 hover:rotate-12 hover:invert rounded-[20px] w-[200px] h-80 sm:w-80 sm:h-96 lg:w-96 lg:h-[600px] lg:mt-4"
-            src="/logo.gif"
+            src="/tina-site-2025/logo.gif"
             alt="Tina's logo"
             width={100}
             height={800}

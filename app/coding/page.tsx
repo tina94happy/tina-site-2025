@@ -19,7 +19,7 @@ const projects: Project[] = [
   {
     title: "Simple FastAPI On AWS EC2",
     description: "A movie information system built with FastAPI, deployed on AWS EC2, and reading data from S3.",
-    image: "/movie-api.png",
+    image: "/tina-site-2025/movie-api.png",
     github: "https://github.com/tina94happy/Simple-FastAPI-On-AWS-EC2",
     category: "PROJECT",
     tech: ["FastAPI", "AWS", "Python", "S3"]
@@ -27,7 +27,7 @@ const projects: Project[] = [
   {
     title: "Java Maze Game",
     description: "A maze game developed in Java where players control a dog to collect all bones.",
-    image: "/java-maze.gif",
+    image: "/tina-site-2025/java-maze.gif",
     github: "https://github.com/tina94happy/JavaMaze",
     category: "GAME",
     tech: ["Java", "Game Development", "OOP"]
@@ -35,7 +35,7 @@ const projects: Project[] = [
   {
     title: "Book Management System",
     description: "A comprehensive book inventory management system backend with modern web technologies.",
-    image: "/book-system.png",
+    image: "/tina-site-2025/book-system.png",
     github: "https://github.com/tina94happy/BookMaintainBackStage",
     category: "PROJECT",
     tech: ["JavaScript", "Vue.js", "Express", "Node.js"]
@@ -43,7 +43,7 @@ const projects: Project[] = [
   {
     title: "CX API Tester",
     description: "An automated API testing tool for CX One platform with comprehensive test coverage.",
-    image: "/cx-api-tester.png",
+    image: "/tina-site-2025/cx-api-tester.png",
     github: "https://github.com/tina94happy/CX-api-tester",
     category: "TOOL",
     tech: ["Python", "API Testing", "Automation", "CI/CD"]
@@ -51,7 +51,7 @@ const projects: Project[] = [
   {
     title: "PDF Merger Tool",
     description: "A utility tool for merging multiple PDF files with batch processing capabilities.",
-    image: "/logo.gif", // Using existing logo as placeholder
+    image: "/tina-site-2025/logo.gif", // Using existing logo as placeholder
     github: "https://github.com/tina94happy/pdf-merger",
     category: "TOOL",
     tech: ["Python", "PDF Processing", "Automation"]
