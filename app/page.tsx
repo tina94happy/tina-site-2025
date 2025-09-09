@@ -1,7 +1,8 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import IntroText from "@/app/src/components/intro-text";
+import IntroText from "@/components/ui/intro-text";
 
 export default function Home() {
   return (
@@ -9,13 +10,13 @@ export default function Home() {
       {/* Navbar */}
       <nav className="flex flex-col sm:flex-row justify-between items-center px-4 sm:px-6 py-4 pt-8 sm:pt-4">
         <div className="hidden sm:block px-4 sm:px-10 mb-4 sm:mb-0">
-          <a href="" className="text-2xl sm:text-3xl font-bold font-poppins text-lofi-purple hover:scale-105 transition-all duration-300">TINA</a>
+          <Link href="/" className="text-2xl sm:text-3xl font-bold font-poppins text-lofi-purple hover:scale-105 transition-all duration-300">TINA</Link>
         </div>
         <div className="flex gap-2 sm:gap-4 space-x-4 sm:space-x-8 font-bold text-sm sm:text-md px-4 sm:px-10">
-          <a href="" className="text-lofi-purple transition-colors border-b-2 border-lofi-purple" >Home</a>
-          <a href="" className="text-white hover:text-lofi-purple transition-colors" >Me</a>
-          <a href="" className="text-white hover:text-lofi-purple transition-colors" >Coding</a>
-          <a href="" className="text-white hover:text-lofi-purple transition-colors" >Learning</a>
+          <Link href="/" className="text-lofi-purple transition-colors border-b-2 border-lofi-purple" >Home</Link>
+          <Link href="/me" className="text-white hover:text-lofi-purple transition-colors" >Me</Link>
+          <Link href="/coding" className="text-white hover:text-lofi-purple transition-colors" >Coding</Link>
+          <Link href="/learning" className="text-white hover:text-lofi-purple transition-colors" >Learning</Link>
         </div>
       </nav>
       
@@ -24,7 +25,7 @@ export default function Home() {
         <div className="w-full lg:w-1/2 flex justify-center mb-8 lg:mb-0">
           <Image
             className="hover:scale-105 transition-all duration-300 hover:rotate-12 hover:invert rounded-[20px] w-[200px] h-80 sm:w-80 sm:h-96 lg:w-96 lg:h-[600px] lg:mt-4"
-            src="/tina-site-2025/logo.gif"
+            src="/logo.gif"
             alt="Tina's logo"
             width={100}
             height={800}

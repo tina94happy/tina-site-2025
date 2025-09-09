@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
    *
    * @see https://nextjs.org/docs/app/api-reference/next-config-js/basePath
    */
-  basePath: "/tina-site-2025",
+  basePath: process.env.NODE_ENV === "production" ? "/tina-site-2025" : "",
 
   /**
    * Disable server-based image optimization. Next.js does not support
