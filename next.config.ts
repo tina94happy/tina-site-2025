@@ -13,7 +13,14 @@ const nextConfig: NextConfig = {
    *
    * @see https://nextjs.org/docs/app/api-reference/next-config-js/basePath
    */
-  basePath: process.env.NODE_ENV === "production" ? "/tina-site-2025" : "",
+  basePath: process.env.NODE_ENV === "production" || process.env.GITHUB_ACTIONS ? "/tina-site-2025" : "",
+
+  /**
+   * Set asset prefix for static assets like images.
+   *
+   * @see https://nextjs.org/docs/app/api-reference/next-config-js/assetPrefix
+   */
+  assetPrefix: process.env.NODE_ENV === "production" || process.env.GITHUB_ACTIONS ? "/tina-site-2025" : "",
 
   /**
    * Disable server-based image optimization. Next.js does not support

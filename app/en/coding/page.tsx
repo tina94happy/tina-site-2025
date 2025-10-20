@@ -96,7 +96,7 @@ const projects: Project[] = [
   }
 ]
 
-export default function CodingPage() {
+export default function EnglishCodingPage() {
   const { t, language } = useTranslation()
   const [activeCategory, setActiveCategory] = useState('ALL')
   const categories = ['ALL', 'TOOL', 'PROJECT', 'GAME']
@@ -125,13 +125,13 @@ export default function CodingPage() {
       {/* Navbar */}
       <nav className="flex flex-col sm:flex-row justify-between items-center px-4 sm:px-6 py-4 pt-8 sm:pt-4">
         <div className="hidden sm:block px-4 sm:px-10 mb-4 sm:mb-0">
-          <Link href="/" className="text-2xl sm:text-3xl font-bold font-poppins text-lofi-purple hover:scale-105 transition-all duration-300">TINA</Link>
+          <Link href="/en" className="text-2xl sm:text-3xl font-bold font-poppins text-lofi-purple hover:scale-105 transition-all duration-300">TINA</Link>
         </div>
         <div className="flex gap-2 sm:gap-4 space-x-4 sm:space-x-8 font-bold text-sm sm:text-md px-4 sm:px-10 items-center">
-          <Link href="/" className="text-white hover:text-lofi-purple transition-colors">{t('home')}</Link>
-          <Link href="/me" className="text-white hover:text-lofi-purple transition-colors">{t('me')}</Link>
-          <Link href="/coding" className="text-lofi-purple transition-colors border-b-2 border-lofi-purple">{t('coding')}</Link>
-          <Link href="/learning" className="text-white hover:text-lofi-purple transition-colors">{t('learning')}</Link>
+          <Link href="/en" className="text-white hover:text-lofi-purple transition-colors">{t('home')}</Link>
+          <Link href="/en/me" className="text-white hover:text-lofi-purple transition-colors">{t('me')}</Link>
+          <Link href="/en/coding" className="text-lofi-purple transition-colors border-b-2 border-lofi-purple">{t('coding')}</Link>
+          <Link href="/en/learning" className="text-white hover:text-lofi-purple transition-colors">{t('learning')}</Link>
           <LanguageSwitcher />
         </div>
       </nav>
