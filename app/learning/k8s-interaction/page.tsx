@@ -13,7 +13,6 @@ import { ArrowLeft } from "lucide-react"
 export default function KubernetesInteractionPage() {
   const { t } = useTranslation()
   const [activeFlow, setActiveFlow] = useState<keyof typeof flows | null>(null)
-  const [hoveredNode, setHoveredNode] = useState<string | null>(null)
 
   const getCurrentFlowDescription = () => {
     if (!activeFlow) return "點擊上方流程卡片來查看詳細的交互模式"
@@ -72,7 +71,7 @@ export default function KubernetesInteractionPage() {
           <div className="bg-gray-900/50 rounded-xl p-6 mb-8">
             <InteractiveK8sDiagram 
               activeFlow={activeFlow}
-              onNodeHover={setHoveredNode}
+              onNodeHover={() => {}}
             />
           </div>
 

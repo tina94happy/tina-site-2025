@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { k8sData, flows, tooltips } from "@/lib/k8s-data"
 
@@ -9,10 +9,29 @@ interface InteractiveK8sDiagramProps {
   onNodeHover: (nodeId: string | null) => void
 }
 
+type NodeType = "actor" | "group" | "cloud" | "storage" | "pod" | "box" | "chip"
+
+interface K8sNode {
+  id: string
+  label: string
+  type: NodeType
+  x: number
+  y: number
+  w?: number
+  h?: number
+}
+
+interface K8sEdge {
+  from: string
+  to: string
+  kind: "control" | "traffic" | "persist" | "internal" | "sync"
+  bidirectional?: boolean
+}
+
 export function InteractiveK8sDiagram({ activeFlow, onNodeHover }: InteractiveK8sDiagramProps) {
   const [hoveredNode, setHoveredNode] = useState<string | null>(null)
 
-  const getNodeStyle = (node: any) => {
+  const getNodeStyle = (node: K8sNode) => {
     const baseStyle = "absolute transition-all duration-300 cursor-pointer flex items-center justify-center text-center"
     
     if (node.type === "group") {
@@ -48,7 +67,7 @@ export function InteractiveK8sDiagram({ activeFlow, onNodeHover }: InteractiveK8
     return 0.3
   }
 
-  const getEdgeStyle = (edge: any) => {
+  const getEdgeStyle = (edge: K8sEdge) => {
     const baseStyle = "stroke-dasharray-5 stroke-2 fill-none"
     
     switch (edge.kind) {
@@ -58,13 +77,14 @@ export function InteractiveK8sDiagram({ activeFlow, onNodeHover }: InteractiveK8
         return `${baseStyle} stroke-green-500`
       case "persist":
       case "internal":
+      case "sync":
         return `${baseStyle} stroke-orange-500`
       default:
         return `${baseStyle} stroke-gray-500`
     }
   }
 
-  const getEdgeOpacity = (edge: any) => {
+  const getEdgeOpacity = (edge: K8sEdge) => {
     if (!activeFlow) return 0.6
     
     const flow = flows[activeFlow]
@@ -76,7 +96,7 @@ export function InteractiveK8sDiagram({ activeFlow, onNodeHover }: InteractiveK8
   }
 
 
-  const getNodePosition = (node: any) => {
+  const getNodePosition = (node: K8sNode) => {
     if (node.type === "group") {
       return {
         left: node.x,
@@ -88,8 +108,8 @@ export function InteractiveK8sDiagram({ activeFlow, onNodeHover }: InteractiveK8
     
     // 根據文字長度調整節點尺寸
     const textLength = node.label.length
-    let width = Math.max(100, textLength * 8 + 20) // 根據文字長度動態調整寬度
-    let height = 40 // 增加高度以容納文字
+    const width = Math.max(100, textLength * 8 + 20) // 根據文字長度動態調整寬度
+    const height = 40 // 增加高度以容納文字
     
     return {
       left: node.x - width / 2,
@@ -99,7 +119,7 @@ export function InteractiveK8sDiagram({ activeFlow, onNodeHover }: InteractiveK8
     }
   }
 
-  const getEdgePath = (edge: any) => {
+  const getEdgePath = (edge: K8sEdge) => {
     const fromNode = k8sData.nodes.find(n => n.id === edge.from)
     const toNode = k8sData.nodes.find(n => n.id === edge.to)
     
@@ -114,21 +134,7 @@ export function InteractiveK8sDiagram({ activeFlow, onNodeHover }: InteractiveK8
     return `M ${fromX} ${fromY} L ${toX} ${toY}`
   }
 
-  const getEdgeMarkers = (edge: any) => {
-    const markers = []
-    
-    // 正向箭頭
-    markers.push(getArrowMarker(edge.kind))
-    
-    // 如果是雙向箭頭，添加反向箭頭
-    if (edge.bidirectional) {
-      markers.push(getArrowMarker(edge.kind, true))
-    }
-    
-    return markers
-  }
-
-  const getArrowMarker = (kind: string, reverse = false) => {
+  const getArrowMarker = (kind: K8sEdge["kind"], reverse = false) => {
     const suffix = reverse ? "-reverse" : ""
     switch (kind) {
       case "control":
@@ -176,34 +182,39 @@ export function InteractiveK8sDiagram({ activeFlow, onNodeHover }: InteractiveK8
           </marker>
         </defs>
         
-        {k8sData.edges.map((edge, index) => (
-          <motion.path
-            key={`${edge.from}-${edge.to}`}
-            d={getEdgePath(edge)}
-            className={getEdgeStyle(edge)}
-            markerEnd={getArrowMarker(edge.kind)}
-            markerStart={edge.bidirectional ? getArrowMarker(edge.kind, true) : undefined}
-            initial={{ pathLength: 0 }}
-            animate={{ 
-              pathLength: getEdgeOpacity(edge),
-              opacity: getEdgeOpacity(edge)
-            }}
-            transition={{ duration: 0.5 }}
-            style={{ zIndex: 1 }}
-          />
-        ))}
+        {k8sData.edges.map((edge) => {
+          const typedEdge = edge as K8sEdge
+          return (
+            <motion.path
+              key={`${edge.from}-${edge.to}`}
+              d={getEdgePath(typedEdge)}
+              className={getEdgeStyle(typedEdge)}
+              markerEnd={getArrowMarker(typedEdge.kind)}
+              markerStart={typedEdge.bidirectional ? getArrowMarker(typedEdge.kind, true) : undefined}
+              initial={{ pathLength: 0 }}
+              animate={{ 
+                pathLength: getEdgeOpacity(typedEdge),
+                opacity: getEdgeOpacity(typedEdge)
+              }}
+              transition={{ duration: 0.5 }}
+              style={{ zIndex: 1 }}
+            />
+          )
+        })}
       </svg>
 
       {/* Nodes */}
-      {k8sData.nodes.map((node) => (
-        <div key={node.id}>
-          <motion.div
-            className={getNodeStyle(node)}
-            style={{
-              ...getNodePosition(node),
-              zIndex: 2,
-              opacity: getNodeOpacity(node.id)
-            }}
+      {k8sData.nodes.map((node) => {
+        const typedNode = node as K8sNode
+        return (
+          <div key={node.id}>
+            <motion.div
+              className={getNodeStyle(typedNode)}
+              style={{
+                ...getNodePosition(typedNode),
+                zIndex: 2,
+                opacity: getNodeOpacity(node.id)
+              }}
             onMouseEnter={() => {
               setHoveredNode(node.id)
               onNodeHover(node.id)
@@ -215,24 +226,25 @@ export function InteractiveK8sDiagram({ activeFlow, onNodeHover }: InteractiveK8
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            {node.type === "group" ? "" : node.label}
-          </motion.div>
-          
-          {/* Group labels outside the boxes */}
-          {node.type === "group" && (
-            <div
-              className="absolute text-sm font-semibold text-gray-300"
-              style={{
-                left: node.x - 10,
-                top: node.y - 25,
-                zIndex: 3
-              }}
-            >
-              {node.label}
-            </div>
-          )}
-        </div>
-      ))}
+              {typedNode.type === "group" ? "" : typedNode.label}
+            </motion.div>
+            
+            {/* Group labels outside the boxes */}
+            {typedNode.type === "group" && (
+              <div
+                className="absolute text-sm font-semibold text-gray-300"
+                style={{
+                  left: typedNode.x - 10,
+                  top: typedNode.y - 25,
+                  zIndex: 3
+                }}
+              >
+                {typedNode.label}
+              </div>
+            )}
+          </div>
+        )
+      })}
 
       {/* Tooltip */}
       <AnimatePresence>

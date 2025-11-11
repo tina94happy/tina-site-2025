@@ -32,7 +32,7 @@ const sizeConfig = {
   lg: "w-5 h-5"
 }
 
-const descriptions = {
+const descriptions: Record<string, string> = {
   "kube-apiserver": "叢集的 API 入口；所有控制請求經由此元件。",
   "controller-manager": "控制迴路；持續協調叢集以達成期望狀態。",
   "scheduler": "將 Pods 排程到合適的節點，考量資源與限制。",

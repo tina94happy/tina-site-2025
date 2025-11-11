@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { ButtonTop } from "@/components/ui/button-top"
 import { LanguageSwitcher } from "@/components/ui/language-switcher"
 import { useTranslation } from "@/hooks/use-translation"
+import { TranslationKey } from "@/lib/translations"
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa"
 
 interface Project {
@@ -163,7 +164,7 @@ export default function EnglishCodingPage() {
                   : 'text-white hover:bg-lofi-purple/20 border border-lofi-purple/30'
                 }`}
             >
-              {t(category.toLowerCase() as any)}
+              {t(category.toLowerCase() as TranslationKey)}
             </button>
           ))}
         </div>

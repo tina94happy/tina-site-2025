@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { ButtonTop } from "@/components/ui/button-top"
 import { LanguageSwitcher } from "@/components/ui/language-switcher"
 import { useTranslation } from "@/hooks/use-translation"
+import { TranslationKey } from "@/lib/translations"
 import { FaExternalLinkAlt, FaMedium, FaBookOpen } from "react-icons/fa"
 
 interface Article {
@@ -166,7 +167,7 @@ export default function LearningPage() {
                   : 'text-white hover:bg-lofi-purple/20 border border-lofi-purple/30'
                 }`}
             >
-              {category === 'ALL' ? t('all') : t(category.toLowerCase() as any)}
+              {category === 'ALL' ? t('all') : t(category.toLowerCase() as TranslationKey)}
             </button>
           ))}
         </div>

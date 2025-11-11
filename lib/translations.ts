@@ -28,7 +28,7 @@ export const translations = {
     connectOnLinkedin: "Connect on LinkedIn",
     
     // Learning page
-    learning: "LEARNING",
+    learningPage: "LEARNING",
     myArticles: "MY ARTICLES", 
     learningDescription: "Sharing knowledge and insights through technical articles on cybersecurity, networking, and cloud technologies.",
     cyber: "CYBER",
@@ -50,12 +50,10 @@ export const translations = {
     experience: "Experience",
     skills: "Skills",
     myTimeline: "My Timeline",
-    all: "All",
-    education: "Education",
+    allMe: "All",
     work: "Work",
     certifications: "Certifications",
     skillsCertifications: "Skills & Certifications",
-    certifications: "Certifications",
     technicalSkills: "Technical Skills"
   },
   zh: {
@@ -87,7 +85,7 @@ export const translations = {
     connectOnLinkedin: "在 LinkedIn 上聯繫",
     
     // 學習頁
-    learning: "學習",
+    learningPage: "學習",
     myArticles: "我的文章",
     learningDescription: "透過網路安全、網路與雲端技術相關的技術文章，分享知識與見解。",
     cyber: "網路安全",
@@ -109,12 +107,10 @@ export const translations = {
     experience: "工作經歷",
     skills: "技能",
     myTimeline: "時間軸",
-    all: "全部",
-    education: "教育背景",
+    allMe: "全部",
     work: "工作經歷",
     certifications: "證照",
     skillsCertifications: "技能與證照",
-    certifications: "證照",
     technicalSkills: "技術技能"
   }
 }

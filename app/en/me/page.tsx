@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ButtonTop } from "@/components/ui/button-top"
 import { LanguageSwitcher } from "@/components/ui/language-switcher"
 import { useTranslation } from "@/hooks/use-translation"
+import { TranslationKey } from "@/lib/translations"
 import { FaGithub, FaLinkedin } from "react-icons/fa"
 
 interface TimelineItem {
@@ -296,7 +297,7 @@ export default function EnglishMePage() {
                     : 'text-white hover:bg-lofi-purple/20 border border-lofi-purple/30'
                   }`}
               >
-                {t(filter.toLowerCase() as any)}
+                {t(filter.toLowerCase() as TranslationKey)}
               </button>
             ))}
           </div>
