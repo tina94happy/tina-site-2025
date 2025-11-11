@@ -29,11 +29,11 @@ export default function Home() {
       <section className="flex flex-col lg:flex-row items-center justify-center text-white px-4 sm:px-10 py-10 pt-18 sm:py-10 pr-6 sm:pr-12 lg:pr-16 flex-grow">
         <div className="w-full lg:w-1/2 flex justify-center mb-8 lg:mb-0">
           <Image
-            className="hover:scale-105 transition-all duration-300 hover:rotate-12 hover:invert rounded-[40px] w-[200px] h-80 sm:w-80 sm:h-96 lg:w-[500px] lg:h-[700px] lg:mt-4 object-contain"
+            className="hover:scale-105 transition-all duration-300 hover:rotate-12 hover:invert rounded-[40px] w-[200px] h-80 sm:w-80 sm:h-96 lg:w-[400px] lg:h-[560px] lg:mt-4 object-contain"
             src="/tina-site-2025/logo.gif"
             alt="Tina's logo"
-            width={500}
-            height={700}
+            width={400}
+            height={560}
             priority
           />
         </div>
