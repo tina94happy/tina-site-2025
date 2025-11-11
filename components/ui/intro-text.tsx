@@ -6,13 +6,17 @@ export default function IntroText() {
   
   const words = language === 'zh' 
     ? [
-        "軟體工程師",
-        "網頁開發者", 
+        "全端開發者",
+        "資安工程師",
+        "測試工程師",
+        "DevOps工程師", 
         "科技愛好者！",
       ]
     : [
-        "a software engineer",
-        "a web developer",
+        "a Full-Stack Developer",
+        "a Security Engineer",
+        "a Test engineer",
+        "a DevOps engineer",
         "a tech enthusiast!",
       ];
 

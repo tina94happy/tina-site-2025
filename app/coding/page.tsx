@@ -33,7 +33,7 @@ const projects: Project[] = [
       en: "A movie information system built with FastAPI, deployed on AWS EC2, and reading data from S3.",
       zh: "使用 FastAPI 建置的電影資訊系統，部署於 AWS EC2，並從 S3 讀取資料。"
     },
-    image: "/movie-api.png",
+    image: "/tina-site-2025/movie-api.png",
     github: "https://github.com/tina94happy/Simple-FastAPI-On-AWS-EC2",
     category: "PROJECT",
     tech: ["FastAPI", "AWS", "Python", "S3"]
@@ -47,7 +47,7 @@ const projects: Project[] = [
       en: "A maze game developed in Java where players control a dog to collect all bones.",
       zh: "使用 Java 開發的迷宮遊戲，玩家控制一隻狗收集所有骨頭。"
     },
-    image: "/java-maze.gif",
+    image: "/tina-site-2025/java-maze.gif",
     github: "https://github.com/tina94happy/JavaMaze",
     category: "GAME",
     tech: ["Java", "Game Development", "OOP"]
@@ -61,7 +61,7 @@ const projects: Project[] = [
       en: "A comprehensive book inventory management system backend with modern web technologies.",
       zh: "使用現代網頁技術建置的綜合圖書庫存管理系統後端。"
     },
-    image: "/book-system.png",
+    image: "/tina-site-2025/book-system.png",
     github: "https://github.com/tina94happy/BookMaintainBackStage",
     category: "PROJECT",
     tech: ["JavaScript", "Vue.js", "Express", "Node.js"]
@@ -75,7 +75,7 @@ const projects: Project[] = [
       en: "An automated API testing tool for CX One platform with comprehensive test coverage.",
       zh: "為 CX One 平台設計的自動化 API 測試工具，具備全面的測試覆蓋率。"
     },
-    image: "/cx-api-tester.png",
+    image: "/tina-site-2025/cx-api-tester.png",
     github: "https://github.com/tina94happy/CX-api-tester",
     category: "TOOL",
     tech: ["Python", "API Testing", "Automation", "CI/CD"]
@@ -89,7 +89,7 @@ const projects: Project[] = [
       en: "A utility tool for merging multiple PDF files with batch processing capabilities.",
       zh: "具備批次處理功能的 PDF 檔案合併工具。"
     },
-    image: "/logo.gif", // Using existing logo as placeholder
+    image: "/tina-site-2025/logo.gif", // Using existing logo as placeholder
     github: "https://github.com/tina94happy/pdf-merger",
     category: "TOOL",
     tech: ["Python", "PDF Processing", "Automation"]

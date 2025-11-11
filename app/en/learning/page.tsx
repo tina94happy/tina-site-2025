@@ -33,7 +33,7 @@ const articles: Article[] = [
       en: "Essential commands and configurations for Cisco Packet Tracer network simulation.",
       zh: "Cisco Packet Tracer 網路模擬的基本指令與配置。"
     },
-    image: "/packet-tracer.png", // Using existing logo as placeholder
+    image: "/tina-site-2025/packet-tracer.png", // Using existing logo as placeholder
     link: "https://medium.com/p/7580fb47176b/edit",
     category: "NETWORK",
     tags: ["Network", "Packet Tracer", "Cisco", "Simulation"],
@@ -48,7 +48,7 @@ const articles: Article[] = [
       en: "Using Open FAIR Risk Analysis framework to quantify cybersecurity risks and make data-driven decisions.",
       zh: "運用 Open FAIR 風險分析框架量化網路安全風險並做出數據驅動的決策。"
     },
-    image: "/open-fair-risk.png", // Using existing logo as placeholder
+    image: "/tina-site-2025/open-fair-risk.png", // Using existing logo as placeholder
     link: "https://medium.com/@wantingsu64/cybersecurity-risk-management-%E9%87%8F%E5%8C%96%E9%A2%A8%E9%9A%AA-open-fair-risk-analysis-ca4a850d1513",
     category: "CYBER",
     tags: ["Cybersecurity Risk Management", "Open FAIR", "Risk Analysis", "Cybersecurity"],

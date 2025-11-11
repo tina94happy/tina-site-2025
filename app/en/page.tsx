@@ -10,9 +10,9 @@ export default function EnglishHome() {
   const { t } = useTranslation();
   
   return (
-    <div className="font-poppins w-full min-h-screen bg-black">
+    <div className="font-poppins w-full min-h-screen bg-black flex flex-col">
       {/* Navbar */}
-      <nav className="flex flex-col sm:flex-row justify-between items-center px-4 sm:px-6 py-4 pt-8 sm:pt-4">
+      <nav className="flex flex-col sm:flex-row justify-between items-center px-4 sm:px-6 py-4 pt-8 sm:pt-4 flex-shrink-0">
         <div className="hidden sm:block px-4 sm:px-10 mb-4 sm:mb-0">
           <Link href="/en" className="text-2xl sm:text-3xl font-bold font-poppins text-lofi-purple hover:scale-105 transition-all duration-300">TINA</Link>
         </div>
@@ -26,14 +26,14 @@ export default function EnglishHome() {
       </nav>
       
       {/* Hero Section */}
-      <section className="flex flex-col lg:flex-row items-center justify-center text-white px-4 sm:px-10 py-10 pt-18 sm:py-10 pr-6 sm:pr-12 lg:pr-16">
+      <section className="flex flex-col lg:flex-row items-center justify-center text-white px-4 sm:px-10 py-10 pt-18 sm:py-10 pr-6 sm:pr-12 lg:pr-16 flex-grow">
         <div className="w-full lg:w-1/2 flex justify-center mb-8 lg:mb-0">
           <Image
-            className="hover:scale-105 transition-all duration-300 hover:rotate-12 hover:invert rounded-[20px] w-[200px] h-80 sm:w-80 sm:h-96 lg:w-96 lg:h-[600px] lg:mt-4"
-            src="/logo.gif"
+            className="hover:scale-105 transition-all duration-300 hover:rotate-12 hover:invert rounded-[40px] w-[200px] h-80 sm:w-80 sm:h-96 lg:w-[500px] lg:h-[700px] lg:mt-4 object-contain"
+            src="/tina-site-2025/logo.gif"
             alt="Tina's logo"
-            width={100}
-            height={800}
+            width={500}
+            height={700}
             priority
           />
         </div>
@@ -43,7 +43,7 @@ export default function EnglishHome() {
             {t('greeting')} <span className="text-lofi-purple">Tina</span>
           </h1>
           <p className="text-xl sm:text-2xl lg:text-3xl py-4">
-            {t('introText')}
+            <IntroText />
           </p>
 
           {/* Socials Links */}

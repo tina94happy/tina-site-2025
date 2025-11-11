@@ -26,6 +26,36 @@ interface Article {
 const articles: Article[] = [
   {
     title: {
+      en: "Kubernetes Interaction Patterns",
+      zh: "Kubernetes 交互模式"
+    },
+    description: {
+      en: "Deep dive into Kubernetes component interactions: control flow, data synchronization, and network access patterns with visual flow diagrams.",
+      zh: "深入了解 Kubernetes 元件交互：控制流程、數據同步與網路存取模式，包含視覺化流程圖。"
+    },
+    image: "/tina-site-2025/logo.gif", // Using existing logo as placeholder
+    link: "/learning/k8s-interaction",
+    category: "DEVOPS",
+    tags: ["Kubernetes", "Interaction Patterns", "Control Flow", "Data Sync"],
+    platform: "Interactive"
+  },
+  {
+    title: {
+      en: "Kubernetes Architecture Visualization",
+      zh: "Kubernetes 架構視覺化"
+    },
+    description: {
+      en: "Interactive visualization comparing Minikube single-node vs multi-node Kubernetes clusters with detailed component explanations.",
+      zh: "互動式視覺化比較 Minikube 單節點與多節點 Kubernetes 叢集，包含詳細元件說明。"
+    },
+    image: "/tina-site-2025/logo.gif", // Using existing logo as placeholder
+    link: "/learning/k8s",
+    category: "DEVOPS",
+    tags: ["Kubernetes", "Container Orchestration", "DevOps", "Architecture"],
+    platform: "Interactive"
+  },
+  {
+    title: {
       en: "Packet Tracer Basic Commands",
       zh: "Packet Tracer 基本指令"
     },
@@ -33,7 +63,7 @@ const articles: Article[] = [
       en: "Essential commands and configurations for Cisco Packet Tracer network simulation.",
       zh: "Cisco Packet Tracer 網路模擬的基本指令與配置。"
     },
-    image: "/packet-tracer.png", // Using existing logo as placeholder
+    image: "/tina-site-2025/packet-tracer.png", // Using existing logo as placeholder
     link: "https://medium.com/p/7580fb47176b/edit",
     category: "NETWORK",
     tags: ["Network", "Packet Tracer", "Cisco", "Simulation"],
@@ -48,7 +78,7 @@ const articles: Article[] = [
       en: "Using Open FAIR Risk Analysis framework to quantify cybersecurity risks and make data-driven decisions.",
       zh: "運用 Open FAIR 風險分析框架量化網路安全風險並做出數據驅動的決策。"
     },
-    image: "/open-fair-risk.png", // Using existing logo as placeholder
+    image: "/tina-site-2025/open-fair-risk.png", // Using existing logo as placeholder
     link: "https://medium.com/@wantingsu64/cybersecurity-risk-management-%E9%87%8F%E5%8C%96%E9%A2%A8%E9%9A%AA-open-fair-risk-analysis-ca4a850d1513",
     category: "CYBER",
     tags: ["Cybersecurity Risk Management", "Open FAIR", "Risk Analysis", "Cybersecurity"],
@@ -84,6 +114,8 @@ export default function LearningPage() {
     switch (platform) {
       case 'Medium':
         return <FaMedium size={16} />
+      case 'Interactive':
+        return <FaBookOpen size={16} />
       default:
         return <FaBookOpen size={16} />
     }
@@ -191,15 +223,25 @@ export default function LearningPage() {
                 </div>
 
                 {/* Read Article Button */}
-                <a
-                  href={article.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-lofi-purple/20 text-lofi-purple rounded-lg hover:bg-lofi-purple hover:text-white transition-all duration-300 text-sm font-medium border border-lofi-purple/30"
-                >
-                  <FaExternalLinkAlt size={12} />
-                  <span>{t('readArticle')}</span>
-                </a>
+                {article.link.startsWith('/') ? (
+                  <Link
+                    href={article.link}
+                    className="flex items-center gap-2 px-4 py-2 bg-lofi-purple/20 text-lofi-purple rounded-lg hover:bg-lofi-purple hover:text-white transition-all duration-300 text-sm font-medium border border-lofi-purple/30"
+                  >
+                    <FaBookOpen size={12} />
+                    <span>查看內容</span>
+                  </Link>
+                ) : (
+                  <a
+                    href={article.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 bg-lofi-purple/20 text-lofi-purple rounded-lg hover:bg-lofi-purple hover:text-white transition-all duration-300 text-sm font-medium border border-lofi-purple/30"
+                  >
+                    <FaExternalLinkAlt size={12} />
+                    <span>{t('readArticle')}</span>
+                  </a>
+                )}
               </div>
             </div>
           ))}
